@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { v4 as uuidv4 } from 'uuid';
 
 const Manager = () => {
   const ref = useRef();
@@ -30,10 +31,16 @@ const Manager = () => {
   };
 
   const SavePassword = () => {
-    setpasswordArray([...passwordArray, form]);
-    localStorage.setItem("passwords", JSON.stringify([...passwordArray, form]));
+    setpasswordArray([...passwordArray, {...form, id : uuidv4()}]);
+    localStorage.setItem("passwords", JSON.stringify([...passwordArray, {...form, id : uuidv4()}]));
     console.log([...passwordArray, form]);
   };
+
+  // const deletePassword = () => {
+  //   setpasswordArray([...passwordArray, {...form, id : uuidv4()}]);
+  //   localStorage.setItem("passwords", JSON.stringify([...passwordArray, form]));
+  //   console.log([...passwordArray, form]);
+  // };
 
   const copyText =(text)=>
   {
@@ -138,7 +145,7 @@ transition= "Bounce"
               src="https://cdn.lordicon.com/jgnvfzqg.json"
               trigger="hover"
             ></lord-icon>
-            Add Password
+            Save 
           </button>
         </div>
         <div className="passwords">
