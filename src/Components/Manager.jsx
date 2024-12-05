@@ -112,9 +112,9 @@ transition= "Bounce"
             className="rounded-full border border-green-500 w-full p-4 py-1"
             type="text"
             name="site"
-            id=""
+            id="site"
           />
-          <div className="flex w-full justify-between gap-8">
+          <div className="flex flex-col md:flex-row w-full justify-between gap-8">
             <input
               value={form.username}
               onChange={handlechange}
@@ -122,7 +122,7 @@ transition= "Bounce"
               className="rounded-full border border-green-500 w-full p-4 py-1 text-black"
               type="text"
               name="username"
-              id=""
+              id="username"
             />
             <div className="relative">
               <input
@@ -133,7 +133,7 @@ transition= "Bounce"
                 className="rounded-full border border-green-500 w-full p-4 py-1"
                 type="password"
                 name="password"
-                id=""
+                id="password"
               />
               <span
                 className="absolute right-[3px] top-[4px] cursor-pointer"
