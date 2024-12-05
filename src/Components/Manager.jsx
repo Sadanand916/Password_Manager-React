@@ -34,13 +34,25 @@ const Manager = () => {
     setpasswordArray([...passwordArray, {...form, id : uuidv4()}]);
     localStorage.setItem("passwords", JSON.stringify([...passwordArray, {...form, id : uuidv4()}]));
     console.log([...passwordArray, form]);
+    setform({ site: "", username: "", password: "" })
   };
 
-  // const deletePassword = () => {
-  //   setpasswordArray([...passwordArray, {...form, id : uuidv4()}]);
-  //   localStorage.setItem("passwords", JSON.stringify([...passwordArray, form]));
-  //   console.log([...passwordArray, form]);
-  // };
+  const deletePassword = (id) => {
+    
+    let c = confirm("Do you really want to delete this password?")
+        if(c){
+          setpasswordArray(passwordArray.filter(item=>item.id!==id));
+          localStorage.setItem("passwords", JSON.stringify(passwordArray.filter(item=>item.id!==id)));
+            
+        }
+    
+  };
+
+  const editPassword = () => {
+    console.log("Editing password with id ", id)
+    setform(passwordArray.filter(i=>i.id===id)[0]) 
+    setPasswordArray(passwordArray.filter(item=>item.id!==id)) 
+  };
 
   const copyText =(text)=>
   {
